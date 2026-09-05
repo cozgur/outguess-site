@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outguess challenge</title>
+<meta name="theme-color" content="#0B0F17">
+<meta name="robots" content="noindex">
+<style>
+  body { margin:0; background:#0B0F17; color:#F3F5F9; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; display:flex; min-height:100vh; align-items:center; justify-content:center; padding:32px; text-align:center; }
+  p { color:#8A94A8; line-height:1.6; }
+  a.btn { display:inline-block; margin-top:16px; padding:16px 28px; border-radius:16px; background:#3D8BFF; color:#fff; font-weight:700; letter-spacing:.12em; text-decoration:none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>A friend dared you.</h1>
+  <p>Same word, your turn. Open the challenge in Outguess.</p>
+  <a class="btn" id="open" href="#">OPEN IN OUTGUESS</a>
+  <p id="fallback" style="display:none">Don't have Outguess yet? It's coming to the App Store.</p>
+</main>
+<script>
+  var token = location.hash.replace(/^#/, '');
+  var link = document.getElementById('open');
+  if (token) { link.href = 'outguess://c/' + token; setTimeout(function(){ location.href = link.href; }, 250); }
+  setTimeout(function(){ document.getElementById('fallback').style.display = 'block'; }, 1800);
+</script>
+</body>
+</html>
